@@ -24,6 +24,7 @@ final class ApiClient {
         let urlRequest = UrlRequester.create(method: "GET",
                                              endPoint: "",
                                              parameters: SearchParamsBuilder.create(searchWord: searchWord, page: 1))
+
         let task = session.dataTask(with: urlRequest) { (data: Data?, response: URLResponse?, error: Error?) in
             
             if let response = response as? HTTPURLResponse {
