@@ -44,34 +44,27 @@ final class PhotoSearchApi {
         
         // APIを叩く
         ApiClient.request(searchWord: seachWord) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let jsonData):
                 do {
                     // Codableにてjsonをマッピング
                     let decoder = JSONDecoder()
                     let photoSearchResponse = try decoder.decode(PhotoSearchResponse.self, from: jsonData)
-                    
-                    guard
-                        let myClass = self,
-                        myClass.validationCheck(response: photoSearchResponse) else {
-                            return
-                    }
-                    // 成功
-                    self?.photoSearchAPIDelegate?.searchResult(result: .successLoad(photoSearchResponse))
-                    
+
+                    guard self.validationCheck(response: photoSearchResponse) else { return }
+                    self.photoSearchAPIDelegate?.searchResult(result: .successLoad(photoSearchResponse))
                 } catch let error {
-                    // 失敗
-                    self?.photoSearchAPIDelegate?.searchResult(result: .error(error))
+                    self.photoSearchAPIDelegate?.searchResult(result: .error(error))
                 }
             case .failure(let error):
                 switch error.nsError.code {
                 case ErrorCode.offline.rawValue:
-                    print("オフライン")
-                    self?.photoSearchAPIDelegate?.searchResult(result: .offline)
+                    self.photoSearchAPIDelegate?.searchResult(result: .offline)
                 default:
-                    self?.photoSearchAPIDelegate?.searchResult(result: .error(error))
+                    self.photoSearchAPIDelegate?.searchResult(result: .error(error))
                 }
-                self?.photoSearchAPIDelegate?.searchResult(result: .error(error))
+                self.photoSearchAPIDelegate?.searchResult(result: .error(error))
             }
         }
     }
