@@ -8,12 +8,6 @@
 
 import Foundation
 
-/// API通信の結果
-enum Result {
-    case success(Data)
-    case failure(Error)
-}
-
 /// API通信の結果ステータスコード
 enum ApiStatusCode: Int {
     case success = 200
@@ -22,7 +16,7 @@ enum ApiStatusCode: Int {
 final class ApiClient {
     
     static func request(searchWord: String,
-                        completionHandler: @escaping (Result) -> Void = { _ in }) {
+                        completionHandler: @escaping (Result<Data, Error>) -> Void = { _ in }) {
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)

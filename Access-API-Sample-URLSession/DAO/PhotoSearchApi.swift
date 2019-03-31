@@ -49,10 +49,10 @@ final class PhotoSearchApi {
             case .success(let jsonData):
                 do {
                     // Codableにてjsonをマッピング
-                    let decoder = JSONDecoder()
-                    let photoSearchResponse = try decoder.decode(PhotoSearchResponse.self, from: jsonData)
+                    let photoSearchResponse = try JSONDecoder().decode(PhotoSearchResponse.self, from: jsonData)
 
                     guard self.validationCheck(response: photoSearchResponse) else { return }
+
                     self.photoSearchAPIDelegate?.searchResult(result: .successLoad(photoSearchResponse))
                 } catch let error {
                     self.photoSearchAPIDelegate?.searchResult(result: .error(error))
