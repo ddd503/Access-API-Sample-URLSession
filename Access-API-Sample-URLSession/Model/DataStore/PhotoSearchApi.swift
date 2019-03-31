@@ -16,13 +16,6 @@ enum PhotoSearchAPIStatus {
     case error(Error)
 }
 
-/// レスポンスのバリデーションチェックステータス
-enum ValidationCheckStatus {
-    case isEmpty
-    case isOver
-    case isIrregular
-}
-
 /// エラーコード種別
 enum ErrorCode: Int {
     case offline = -1009
@@ -83,7 +76,9 @@ final class PhotoSearchApi {
 
 // Error側をNSErrorも使えるように拡張
 private extension Error {
+
     var nsError: NSError {
         return (self as NSError)
     }
+    
 }
