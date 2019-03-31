@@ -89,15 +89,10 @@
 		45065E3B20D677C500D38A62 /* Access-API-Sample-URLSession */ = {
 			isa = PBXGroup;
 			children = (
-				45065E5E20D6781600D38A62 /* DAO */,
-				45065E5D20D6781300D38A62 /* DTO */,
+				45D50481225096BE008B6639 /* Model */,
+				45D50480225096BB008B6639 /* Controller */,
+				45D5047F225096B7008B6639 /* Other */,
 				45065E5C20D677F500D38A62 /* Helper */,
-				45065E3C20D677C500D38A62 /* AppDelegate.swift */,
-				45065E3E20D677C500D38A62 /* ViewController.swift */,
-				45065E4020D677C500D38A62 /* Main.storyboard */,
-				45065E4320D677C600D38A62 /* Assets.xcassets */,
-				45065E4520D677C600D38A62 /* LaunchScreen.storyboard */,
-				45065E4820D677C600D38A62 /* Info.plist */,
 			);
 			path = "Access-API-Sample-URLSession";
 			sourceTree = "<group>";
@@ -122,20 +117,49 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		45065E5D20D6781300D38A62 /* DTO */ = {
+		45D5047F225096B7008B6639 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				45065E3C20D677C500D38A62 /* AppDelegate.swift */,
+				45065E4320D677C600D38A62 /* Assets.xcassets */,
+				45065E4520D677C600D38A62 /* LaunchScreen.storyboard */,
+				45065E4820D677C600D38A62 /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		45D50480225096BB008B6639 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45065E3E20D677C500D38A62 /* ViewController.swift */,
+				45065E4020D677C500D38A62 /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45D50481225096BE008B6639 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45D50483225096D6008B6639 /* DataStore */,
+				45D50482225096D3008B6639 /* Entity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45D50482225096D3008B6639 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				45065E5F20D6783900D38A62 /* PhotoSearchResponse.swift */,
 			);
-			path = DTO;
+			path = Entity;
 			sourceTree = "<group>";
 		};
-		45065E5E20D6781600D38A62 /* DAO */ = {
+		45D50483225096D6008B6639 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
 				45065E6120D6784400D38A62 /* PhotoSearchApi.swift */,
 			);
-			path = DAO;
+			path = DataStore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,7 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "Access-API-Sample-URLSession/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Access-API-Sample-URLSession/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "Access-API-Sample-URLSession/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Access-API-Sample-URLSession/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
