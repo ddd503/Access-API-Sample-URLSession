@@ -82,8 +82,8 @@ final class PhotoSearchApi {
 }
 
 // Error側をNSErrorも使えるように拡張
-extension Error {
-    fileprivate var nsError: NSError {
+private extension Error {
+    var nsError: NSError {
         return (self as NSError)
     }
 }
