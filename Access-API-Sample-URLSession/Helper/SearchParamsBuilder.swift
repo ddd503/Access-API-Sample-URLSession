@@ -6,10 +6,12 @@
 //  Copyright © 2018年 kawaharadai. All rights reserved.
 //
 
+import Keys
+
 final class SearchParamsBuilder {
     
     /// 通信に使用するのAPIKey
-    static let apiKey = ""
+    static let apiKey = AccessAPISampleURLSessionKeys().flickrApiKey
     
     /// 1ページあたりの表示件数
     static let perPage = 1
