@@ -33,10 +33,13 @@ final class PhotoSearchApi {
     
     weak var photoSearchAPIDelegate: PhotoSearchAPIDelegate?
     
-    func requestAPI(seachWord: String) {
-        
+    func requestAPI(searchWord: String) {
+        // パラメータなどのリクエストを作成
+        let urlRequest = UrlRequester.create(method: "GET",
+                                             path: "",
+                                             parameters: SearchParamsBuilder.create(searchWord: searchWord, page: 1))
         // APIを叩く
-        ApiClient.request(searchWord: seachWord) { [weak self] result in
+        ApiClient.request(urlRequest: urlRequest) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let jsonData):

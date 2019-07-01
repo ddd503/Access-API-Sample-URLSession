@@ -15,15 +15,11 @@ enum ApiStatusCode: Int {
 
 final class ApiClient {
     
-    static func request(searchWord: String,
+    static func request(urlRequest: URLRequest,
                         completionHandler: @escaping (Result<Data, Error>) -> Void = { _ in }) {
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        // パラメータなどのリクエストを作成
-        let urlRequest = UrlRequester.create(method: "GET",
-                                             endPoint: "",
-                                             parameters: SearchParamsBuilder.create(searchWord: searchWord, page: 1))
 
         let task = session.dataTask(with: urlRequest) { (data: Data?, response: URLResponse?, error: Error?) in
             

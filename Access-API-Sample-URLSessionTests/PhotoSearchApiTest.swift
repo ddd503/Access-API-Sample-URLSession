@@ -30,7 +30,7 @@ final class PhotoSearchApiTest: XCTestCase {
         let expectation = self.expectation(description: "sky")
         delegateTest.asyncExpectation = expectation
         
-        photoSearchAPI.requestAPI(seachWord: "sky")
+        photoSearchAPI.requestAPI(searchWord: "sky")
         
         waitForExpectations(timeout: 1.0) { error in
             if let error = error {

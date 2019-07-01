@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         self.setup()
         // 画像検索APIを叩く
-        photoSearchApi.requestAPI(seachWord: "sky")
+        photoSearchApi.requestAPI(searchWord: "sky")
     }
     
     private func setup() {

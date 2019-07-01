@@ -15,7 +15,7 @@ final class UrlRequester {
     static let baseURLString = "https://api.flickr.com/services/rest"
 
     /// URLRequest型で変数を返す（３つのプロパティをenumのタイプによってセットした状態で）
-    static func create(method: String, endPoint: String, parameters: [String: String]) -> URLRequest {
+    static func create(method: String, path: String, parameters: [String: String]) -> URLRequest {
 
         guard let url = UrlRequester.baseURLString.formalUrl,
             var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
